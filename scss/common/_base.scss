@@ -1,0 +1,23 @@
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.restricted-width {
+  width: 100%;
+  max-width: $max-width;
+  margin: auto;
+  padding: 0 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.hide-mobile {
+  display: none;
+}
+
+.show-mobile {
+  display: inherit;
+}

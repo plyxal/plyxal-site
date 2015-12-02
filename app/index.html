@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Plyxal</title>
+
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="home">
+        <div class="header">
+            <nav class="header navbar navbar-default navbar-fixed-top">
+                <div class="restricted-width">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand logo"></a>
+                    </div>
+                    <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="content-body">
+            <!-- hero -->
+            <div class="hero">
+                <div class="video-image"></div>
+                <video autoplay loop poster="assets/images/hero.png">
+                    <source src="assets/video/hero-large.mp4" type="video/mp4">
+                    <div class="video-image-backup"></div>
+                </video>
+                <div class="slogan">
+                    <div class="the-future"></div>
+                    <div class="of-table"></div>
+                    <div class="top-gaming"></div>
+                    <div class="is-here"></div>
+                </div>
+            </div>
+
+            <!-- plus, plus -->
+            <div class="restricted-width">
+                <div class="plus-plus-container">
+                    <div class="col-sm-4 dice">
+                        <div class="plus">+</div>
+                    </div>
+                    <div class="col-sm-4 controller">
+                        <div class="equal">=</div>
+                    </div>
+                    <div class="col-sm-4 x"></div>
+                </div>
+            </div>
+
+            <!-- sign up -->
+            <div class="sign-up">
+                <div class="sign-up-inner sign-up-form-container">
+                    <div class="know-more">Want to know more?</div>
+                    <form id="emailForm" class="form form-horizontal sign-up-form" action="//formspree.io/info@plyxal.com" method="post">
+                        <input type="email" name="email" class="form-control email-form-control" placeholder="enter email" />
+                        <button type="submit" value="Send" class="btn btn-default btn-sign-up">Sign Up</button>
+                    </form>
+                </div>
+
+                <div class="sign-up-inner sign-up-success hidden">
+                    <div class="know-more">Thank you!</div>
+                    <div class="thank-you">Thanks for signing up to receive updates about Plyxal. As we have more information to share, you will be among some of the first to know. Stay Tuned!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        Copyright 2015, Plyxal Inc.
+        <div class="social">
+            <a class="email" href="mailto:info@plyxal.com"></a>
+            <a class="twitter" href="https://twitter.com/plyxal" target="_blank"></a>
+            <a class="facebook" href="https://www.facebook.com/plyxal" target="_blank"></a>
+        </div>
+    </div>
+
+    <script>
+        var signupFormContainer = $('.sign-up-form-container');
+        var signupForm = $('.sign-up-form');
+
+        var signupSuccess = $('.sign-up-success');
+
+        var submitForm = function(event) {
+            //success handler
+            var success = function(data) {
+                signupFormContainer.addClass('hidden');
+                signupSuccess.removeClass('hidden');
+            };
+
+            //prevent default
+            event.preventDefault();
+
+            //collect form values
+            var $form = $(this),
+                input = $form.find('input[name="email"]').val(),
+                url = $form.attr('action');
+
+            //submit form
+            $.ajax({url: url, method: 'POST', data:{ email: input, _subject: 'New Plyxal Sign Up!' }, dataType: 'json'})
+                    .success(success);
+        };
+
+        (function(){
+            signupForm.submit(submitForm);
+        }());
+    </script>
+</body>
+</html>

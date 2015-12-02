@@ -1,0 +1,24 @@
+.header {
+
+  .navbar-toggle {
+    @extend .hidden;
+
+    border: none;
+    margin-right: 0;
+  }
+
+  .logo {
+    width: 159px;
+    height: 50px;
+
+    background-size: 133px 30px;
+    background-repeat: no-repeat;
+    background-position: 0 center;
+    background-image: url('../images/logo.png');
+  }
+}
+
+.header.navbar-default {
+  background-color: white !important;
+  border-bottom: solid 1px #999999;
+}

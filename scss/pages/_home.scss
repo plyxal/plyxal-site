@@ -1,0 +1,350 @@
+.home {
+  width: 100%;
+  min-height: calc(100% - 50px);
+
+  .content-body {
+    padding-top: 50px;
+  }
+
+  //hero desktop
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+
+    border-top: solid 1px #999999;
+    border-bottom: solid 1px #999999;
+
+    .video-image-backup {
+      display: block;
+      height: 500px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-image: url('../images/hero.png');
+    }
+
+    .video-image {
+      display: none;
+    }
+
+    video {
+      position: relative;
+      width: 100%;
+      background-color: white;
+    }
+
+    .slogan {
+      position: absolute;
+      bottom: 50px;
+      right: 50px;
+
+      padding: 5px 0;
+
+      text-align: right;
+      line-height: 0;
+
+      border: solid 1px #999999;
+      background-color: rgba(255, 255, 255, .9);
+
+      .base-slogan {
+        display: inline-block;
+
+        height: 31px;
+
+        background-position: center center;
+        background-repeat: no-repeat;
+      }
+
+      .the-future {
+        @extend .base-slogan;
+
+        width: 192px;
+
+        background-size: 192px 21px;
+        background-image: url('../images/the.future.png');
+      }
+
+      .of-table {
+        @extend .base-slogan;
+
+        width: 159px;
+
+        background-size: 159px 21px;
+        background-image: url('../images/of.table.png');
+      }
+
+      .top-gaming {
+        @extend .base-slogan;
+
+        width: 194px;
+
+        background-size: 194px 21px;
+        background-image: url('../images/top.gaming.png');
+      }
+
+      .is-here {
+        @extend .base-slogan;
+
+        width: 139px;
+
+        background-size: 139px 21px;
+        background-image: url('../images/is.here.png');
+      }
+    }
+
+    @media screen and (max-width: 875px) {
+      .slogan {
+        max-width: 357px; //555px;
+      }
+    }
+
+    @media screen and (max-width: 510px) {
+      .slogan {
+        max-width: 194px;
+      }
+    }
+  }
+
+  //hero mobile
+  @media screen and (max-width: 768px) {
+    .hero {
+      height: 300px;
+
+      video {
+        display: none;
+      }
+
+      .video-image {
+        display: block;
+        height: 300px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../images/hero.png');
+      }
+
+      .slogan {
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  }
+
+  //plus, plus
+  .plus-plus-container {
+    display: inline-block;
+    width: 100%;
+
+    .base-plus-plus {
+      height: 300px;
+      background-size: 300px 300px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      //border: solid 1px black;
+    }
+
+    .dice {
+      @extend .base-plus-plus;
+
+      overflow: visible;
+
+      background-image: url('../images/dice.png');
+    }
+
+    .controller {
+      @extend .base-plus-plus;
+
+      background-image: url('../images/controller.png');
+    }
+
+    .x {
+      @extend .base-plus-plus;
+
+      background-image: url('../images/x.png');
+    }
+
+    .plus, .equal {
+      height: 35px;
+
+      position: absolute;
+      z-index: 1000;
+      right: -18px;
+      top: 50%;
+
+      margin-top: -17px;
+
+      line-height: 35px;
+      font-size: 60px;
+
+      color: $logo-red;
+    }
+  }
+
+  //plus, plus mobile
+  @media screen and (max-width: 768px) {
+    .plus-plus-container {
+      .base-plus-plus {
+        height: 200px;
+      }
+
+      .plus, .equal {
+        top: 100%;
+        right: 50%;
+        margin-right: -16px;
+      }
+
+      .plus {
+        margin-top: -17px; //-25px;
+      }
+
+      .equal {
+        margin-top: -17px; //-10px;
+      }
+    }
+  }
+
+  //sign up
+  .sign-up {
+    position: relative;
+
+    width: 100%;
+    height: 200px;
+
+    margin-bottom: -1px;
+
+    border-top: solid 1px #999999;
+    border-bottom: solid 1px #999999;
+    background-color: #ececec;
+
+    .sign-up-inner {
+      width: 100%;
+
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      padding: 0 20px;
+
+      text-align: center;
+
+      .know-more {
+        font-family: oratorStd;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .sign-up-form {
+        margin: auto;
+
+        .email-form-control {
+          display: inline-block;
+          max-width: 300px;
+        }
+
+        .btn-sign-up {
+          display: inline-block;
+          margin-left: 10px;
+
+          color: $logo-red;
+          font-weight: 500;
+        }
+      }
+
+      .thank-you {
+        margin: 0 20px;
+        max-width: 500px;
+        margin: auto;
+      }
+    }
+  }
+
+  //sign up mobile
+  @media screen and (max-width: 768px) {
+    .sign-up-inner {
+      .know-more {
+        margin-bottom: 20px !important;
+      }
+
+      .sign-up-form {
+
+        .email-form-control {
+          display: block !important;
+          margin: auto;
+          height: 44px;
+        }
+
+        .btn-sign-up {
+          //display:block;
+          width: 100%;
+          max-width: 300px;
+          height: 44px;
+
+          margin: 10px 0 0 0 !important;
+        }
+      }
+    }
+  }
+}
+
+//footer
+.footer {
+  position: relative;
+  bottom: 0;
+
+  width: 100%;
+  height: 50px;
+
+  padding: 0 20px;
+
+  //text-align: right;
+  line-height: 50px;
+
+  color: $logo-grey;
+
+  background-color: white;
+  border-top: solid 1px #999999;
+
+  .social {
+    float: right;
+    height: 26px;
+    margin-top: 11px;
+    line-height: 1;
+
+    .base-social {
+      width: 26px;
+      height: 26px;
+
+      display: inline-block;
+
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 26px 26px;
+    }
+
+    .email {
+      @extend .base-social;
+
+      margin-right: 3px;
+      background-image: url('../images/email.png');
+    }
+
+    .twitter {
+      @extend .base-social;
+
+      margin-right: 3px;
+      background-image: url('../images/twitter.png');
+    }
+
+    .facebook {
+      @extend .base-social;
+
+      background-image: url('../images/facebook.png');
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+
+  }
+}
