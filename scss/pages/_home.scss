@@ -39,69 +39,36 @@
       bottom: 50px;
       right: 50px;
 
-      padding: 5px 0;
+      padding: 5px 8px 7px 8px;
 
       text-align: right;
-      line-height: 0;
+
+      font-size: 26px;
+      line-height: 1;
+      font-family: oratorStd;
 
       border: solid 1px #999999;
       background-color: rgba(255, 255, 255, .9);
 
-      .base-slogan {
-        display: inline-block;
-
-        height: 31px;
-
-        background-position: center center;
-        background-repeat: no-repeat;
+      .red {
+        color: #983333;
       }
 
-      .the-future {
-        @extend .base-slogan;
-
-        width: 192px;
-
-        background-size: 192px 21px;
-        background-image: url('../images/the.future.png');
-      }
-
-      .of-table {
-        @extend .base-slogan;
-
-        width: 159px;
-
-        background-size: 159px 21px;
-        background-image: url('../images/of.table.png');
-      }
-
-      .top-gaming {
-        @extend .base-slogan;
-
-        width: 194px;
-
-        background-size: 194px 21px;
-        background-image: url('../images/top.gaming.png');
-      }
-
-      .is-here {
-        @extend .base-slogan;
-
-        width: 139px;
-
-        background-size: 139px 21px;
-        background-image: url('../images/is.here.png');
+      .br1, .br2 {
+        display: none;
       }
     }
 
-    @media screen and (max-width: 875px) {
+    // slogan mobile
+    @media screen and (max-width: 680px) {
       .slogan {
-        max-width: 357px; //555px;
-      }
-    }
+        .br1, .br2 {
+          display: inline;
+        }
 
-    @media screen and (max-width: 510px) {
-      .slogan {
-        max-width: 194px;
+        .sp {
+          display: none;
+        }
       }
     }
   }
@@ -132,19 +99,27 @@
 
   //plus, plus
   .plus-plus-container {
-    display: inline-block;
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 300px;
 
     .base-plus-plus {
-      height: 300px;
       background-size: 300px 300px;
       background-repeat: no-repeat;
       background-position: center center;
-      //border: solid 1px black;
+    }
+
+    .spacer {
+      flex: 1;
     }
 
     .dice {
       @extend .base-plus-plus;
+
+      width: 122px;
+      height: 104px;
 
       overflow: visible;
 
@@ -154,51 +129,47 @@
     .controller {
       @extend .base-plus-plus;
 
+      width: 151px;
+      height: 138px;
       background-image: url('../images/controller.png');
     }
 
     .x {
       @extend .base-plus-plus;
 
+      width: 73px;
+      height: 96px;
       background-image: url('../images/x.png');
     }
 
-    .plus, .equal {
-      height: 35px;
+    .plus {
+      width: 30px;
+      min-width: 30px;
+      height: 30px;
 
-      position: absolute;
-      z-index: 1000;
-      right: -18px;
-      top: 50%;
+      position: relative;
+      z-index: 1001;
+      background-image: url('../images/plus.png');
+    }
 
-      margin-top: -17px;
-
-      line-height: 35px;
-      font-size: 60px;
-
-      color: $logo-red;
+    .equal {
+      width: 30px;
+      min-width: 30px;
+      height: 18px;
+      background-image: url('../images/equal.png');
     }
   }
 
-  //plus, plus mobile
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 580px) {
     .plus-plus-container {
+      flex-direction: column;
+
       .base-plus-plus {
-        height: 200px;
+        width: 300px;
       }
 
-      .plus, .equal {
-        top: 100%;
-        right: 50%;
-        margin-right: -16px;
-      }
-
-      .plus {
-        margin-top: -17px; //-25px;
-      }
-
-      .equal {
-        margin-top: -17px; //-10px;
+      .spacer {
+        height: 50px;
       }
     }
   }
@@ -274,7 +245,6 @@
         }
 
         .btn-sign-up {
-          //display:block;
           width: 100%;
           max-width: 300px;
           height: 44px;
